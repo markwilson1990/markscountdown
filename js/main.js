@@ -15,8 +15,17 @@ addToCountdownResult = () => {
     minutesRemaining = Math.floor((24 * timeRemaining % 1) * 60);
     secondsRemaining = Math.round(60 * (((24 * (timeRemaining % 1)) * 60) % 1));
 
-    if (hoursRemaining < 1) {
-        hoursRemaining = 00;
+    if(hoursRemaining < 1) {
+        hoursRemaining = 0;
+    }
+    if(hoursRemaining < 10){
+        hoursRemaining = '0'+ hoursRemaining; 
+    }
+    if(minutesRemaining < 10){
+        minutesRemaining = '0' + minutesRemaining;
+    }
+    if(secondsRemaining < 10){
+        secondsRemaining = '0' + secondsRemaining;
     }
 
     daySelector.innerHTML = daysRemaining;
